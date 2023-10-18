@@ -29,7 +29,7 @@ The pseudo-random generation function uses a seed to generate the next number. I
 
 However, it is possible to retrieve the **PREVIOUS** `$_SESSION["seed"]`, by using two consecutive return values!
 
-Let the first return value be `x` and the second return value be `y`. We know that `x` is related to the `seed_y` that is used to generate `y` (i.e., `x` = `seed_y` % 1000000). This means that if we iterate from values `x`, `x + 1000000`, `x + 2000000`, ..., we will be able to find the value of `seed_y` that will generate `y`. Because the number of bits used in the pseudo-random generation is 32bits, the maximum value `seed_y` could be should be around `2^32`. The below python code will allow us to recover `seed_y`, given two consecutive return values.
+Let the first return value be `x` and the second return value be `y`. We know that `x` is related to the `seed_y` that is used to generate `y` (i.e., `x` = `seed_y` % 1000000). This means that if we iterate from values `x`, `x + 1000000`, `x + 2000000`, ..., we will be able to find the value of `seed_y` that will generate `y`. Because the number of bits used in the pseudo-random generation is 32bits, the maximum value `seed_y` should be around `2^32`. The below python code will allow us to recover `seed_y`, given two consecutive return values.
 
 ```python
 first_return_value = 211278
